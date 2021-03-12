@@ -17,10 +17,11 @@ const IndexPage = props => {
   return (
     <>
       <h1>
-        This is an example for <a>Persistent UI with Gatsby</a>
+        Notice as you change routes with the link below, the timer in the header
+        will persist.
       </h1>
       <p>
-        <Link to="/typed/">The TS page</Link> <br />
+        <Link to="/typed/">The TypeScript implementation</Link> <br />
       </p>
     </>
   )
