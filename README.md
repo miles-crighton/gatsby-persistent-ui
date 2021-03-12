@@ -1,5 +1,7 @@
 This code accompanies the article []() demonstrating use of Gatsby's `wrapPageElement` for persisting components across routes.
 
+[Live Demo](https://miles-crighton.github.io/gatsby-persistent-ui/)
+
 # Quick Implementation
 
 Assign a React Component to the static `Layout` property on a page component. This will be the persistent component, make sure it renders its children.
