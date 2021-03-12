@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Persistent UI With Gatsby`,
+    description: `Learn how to utilize wrapPageElement to keep components persist across routes`,
+    author: `@miles-crighton`,
   },
-  plugins: [],
 }
