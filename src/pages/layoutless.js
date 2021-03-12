@@ -1,18 +1,12 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
-
 const IndexPage = ({ data, path }) => {
   return (
     <>
-      <h1>
-        Notice as you change routes with the link below, the timer in the header
-        will persist.
-      </h1>
+      <h1>This page has no layout, boo shame.</h1>
       <p>
-        <Link to="/typed/">The TypeScript Page</Link> <br />
-        <Link to="/layoutless/">A layoutless page</Link> <br />
+        <Link to="/">Back to index</Link> <br />
       </p>
       <p>
         You're currently on the page "{path}" which was built on{" "}
@@ -21,8 +15,6 @@ const IndexPage = ({ data, path }) => {
     </>
   )
 }
-
-IndexPage.Layout = Layout
 
 export default IndexPage
 
