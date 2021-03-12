@@ -1,19 +1,9 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 
-const IndexPage = props => {
-  const data = useStaticQuery(graphql`
-    query SiteDescriptionQuery {
-      site {
-        siteMetadata {
-          description
-        }
-      }
-    }
-  `)
-  console.log(props, data)
+const IndexPage = ({ data, path }) => {
   return (
     <>
       <h1>
@@ -21,7 +11,11 @@ const IndexPage = props => {
         will persist.
       </h1>
       <p>
-        <Link to="/typed/">The TypeScript implementation</Link> <br />
+        <Link to="/typed/">The TypeScript Page</Link> <br />
+      </p>
+      <p>
+        You're currently on the page "{path}" which was built on{" "}
+        {data.site.buildTime}.
       </p>
     </>
   )
@@ -30,3 +24,11 @@ const IndexPage = props => {
 IndexPage.Layout = Layout
 
 export default IndexPage
+
+export const query = graphql`
+  {
+    site {
+      buildTime(formatString: "YYYY-MM-DD hh:mm a z")
+    }
+  }
+`

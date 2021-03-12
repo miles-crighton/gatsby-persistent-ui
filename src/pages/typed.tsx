@@ -1,18 +1,22 @@
 import * as React from "react"
-import { Link, PageProps } from "gatsby"
+import { graphql, Link, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
 
-type FCWithLayout<T> = React.FC<T> & { Layout: React.FC<PageProps> }
-
-interface IndexPageProps extends PageProps {
-  funky: boolean
+type DataProps = {
+  site: {
+    buildTime: string
+  }
 }
 
-const IndexPage: FCWithLayout<IndexPageProps> = props => {
+const IndexPage = ({ data, path }: PageProps<DataProps>) => {
   return (
     <>
-      <p>All Hail Typescript</p>
+      <h1>All Hail Typescript</h1>
+      <p>
+        You're currently on the page "{path}" which was built on{" "}
+        {data.site.buildTime}.
+      </p>
       <p>
         <Link to="/">Back to index</Link> <br />
       </p>
@@ -23,3 +27,11 @@ const IndexPage: FCWithLayout<IndexPageProps> = props => {
 IndexPage.Layout = Layout
 
 export default IndexPage
+
+export const query = graphql`
+  {
+    site {
+      buildTime(formatString: "YYYY-MM-DD hh:mm a z")
+    }
+  }
+`
