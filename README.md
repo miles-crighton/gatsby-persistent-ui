@@ -1,3 +1,5 @@
+# gatsby-persistent-ui
+
 This code accompanies the article [Keeping persistent UI across routes with Gatsby's wrapPageElement](https://dev.to/milescrighton/keeping-persistent-ui-across-routes-with-gatsby-s-wrappageelement-4o22) demonstrating use of Gatsby's `wrapPageElement` for persisting components across routes.
 
 [Live Demo](https://miles-crighton.github.io/gatsby-persistent-ui/)
@@ -13,7 +15,7 @@ const IndexPage = () => {
   return ...
 }
 
-IndexPage.Layout = Layout
+IndexPage.Layout = Layout // <-- Important part
 export default IndexPage
 ```
 
