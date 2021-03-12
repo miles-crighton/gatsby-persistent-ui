@@ -13,6 +13,20 @@ import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
+  const [counter, setCounter] = React.useState(0)
+  const [running, setRunning] = React.useState(true)
+
+  React.useEffect(() => {
+    let interval
+
+    if (running) {
+      interval = setInterval(() => setCounter(x => x + 1), 100)
+    }
+    return () => {
+      if (interval) clearInterval(interval)
+    }
+  }, [running])
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -26,6 +40,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <div>{counter / 10}</div>
+      <button onClick={() => setRunning(x => !x)}>
+        {running ? "Pause" : "Play"}
+      </button>
       <div
         style={{
           margin: `0 auto`,
@@ -48,8 +66,8 @@ const Layout = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+// Layout.propTypes = {
+//   children: PropTypes.node.isRequired,
+// }
 
 export default Layout
